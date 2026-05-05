@@ -43,7 +43,7 @@ $pizza = new Pizza($db);
  
         // Mostrar os dados das pizzas em formato JSON
         echo json_encode($pizzas_arr);
-    } else {
+     else {
         // Se nenhuma pizza for encontrada, definir o código de resposta como 404 Not Found
         
         //http_response_code(404);
@@ -54,7 +54,7 @@ $pizza = new Pizza($db);
         echo json_encode(
             array("message" => "Nenhuma pizza encontrada.")
         );
-    }
+    
 
 }else{
 
