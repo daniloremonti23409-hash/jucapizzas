@@ -4,7 +4,7 @@ class Database
 {
 
 private $host = 'localhost';
-private $db_name = 'jucapizza';
+private $db_name = 'jucapizzasbd';
 private $username = 'root';
 private $password = 'usbw';
 private $port = '3306';
