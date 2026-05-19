@@ -86,4 +86,31 @@ class Pizza{
         return false;
 
     }
+
+    public function update() {
+        // Query de atualização
+        $query = 'UPDATE ' . $this->tabela . ' SET nome=:nome, ingredientes=:ingredientes, valor=:valor WHERE idPizza=:id';
+ 
+        // Preparar a query
+        $stmt = $this->conn->prepare($query);
+ 
+        // Limpar os dados
+        $this->nome = htmlspecialchars(strip_tags($this->nome));
+        $this->ingredientes = htmlspecialchars(strip_tags($this->ingredientes));
+        $this->valor = htmlspecialchars(strip_tags($this->valor));
+        $this->idPizza = htmlspecialchars(strip_tags($this->idPizza));
+ 
+        // Vincular os parâmetros
+        $stmt->bindParam(':nome', $this->nome);
+        $stmt->bindParam(':ingredientes', $this->ingredientes);
+        $stmt->bindParam(':valor', $this->valor);
+        $stmt->bindParam(':id', $this->idPizza);
+ 
+        // Executar a query
+        if($stmt->execute()) {
+            return true;
+        }
+     
+        return false;
+    }
 }
