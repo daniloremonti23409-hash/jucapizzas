@@ -126,4 +126,22 @@ class Bebida {
 
         return false;
     }
+
+public function delete() {
+
+        $query = "DELETE FROM " . $this->tabela . " WHERE idBebidas = :idBebidas";
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->idBebidas = htmlspecialchars(strip_tags($this->idBebidas));
+
+        $stmt->bindParam(':idBebidas', $this->idBebidas);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+
+        return false;
+    }
+
 }
